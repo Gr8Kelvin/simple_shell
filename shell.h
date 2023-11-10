@@ -3,6 +3,7 @@
 
 #include <errno.h>
 #include <stdlib.h>
+#include <sys/wait.h>
 #include <stdio.h>
 #include <limits.h>
 #include <sys/stat.h>
@@ -33,6 +34,10 @@
 #define HISTORY_MAX 4096
 
 extern char **envir;
+
+
+
+
 /**
  * struct list_string - singly linked list
  * @number: number
@@ -90,7 +95,8 @@ typedef struct commandinfo
 } inform_t;
 
 #define INFO_INIT \
-{NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \ 0, 0, 0}
+{NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
+	0, 0, 0}
 
 /**
  * struct build - string build
@@ -170,9 +176,10 @@ void del_info(inform_t *);
 void put_info(inform_t *, char **);
 void release_info(inform_t *, int);
 
-char *disp_env(inform_t *);
+char *disp_env(inform_t *, const char *);
 int get_env(inform_t *);
 int rmv_env(inform_t *);
+int set_env(inform_t *);
 int pop_env(inform_t *);
 
 char **get_envir(inform_t *);
@@ -187,6 +194,12 @@ int order_hist(inform_t *info);
 
 list_string *node_add(list_string **, const char *, int);
 list_string *nodeend_add(list_string **, const char *, int);
+size_t disp_list_str(const list_string *);
+int rmv_node(list_string **, unsigned int);
+void avail_list(list_string **);
+
+size_t length_list(const list_string *);
+char **list_stringo_str(list_string *);
 size_t disp_list(const list_string *);
 list_string *node_start(list_string *, char *, char);
 ssize_t get_id_node(list_string *, list_string *);
@@ -196,5 +209,6 @@ void chk_chn(inform_t *, char *, size_t *, size_t, size_t);
 int als_rep(inform_t *);
 int var_rep(inform_t *);
 int str_rep(char **, char *);
+
 
 #endif
