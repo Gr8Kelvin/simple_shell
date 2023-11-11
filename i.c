@@ -1,8 +1,8 @@
 #include "shell.h"
 
 /**
- * del_info - initializes inform_t struct
- * @info: struct address
+ * del_info - delete
+ * @info: pointer
  */
 void del_info(inform_t *info)
 {
@@ -13,18 +13,18 @@ void del_info(inform_t *info)
 }
 
 /**
- * put_info - initializes inform_t struct
- * @info: struct address
- * @av: argument vector
+ * put_info - initialize
+ * @info: pointer
+ * @av: pointer of arg vector
  */
 void put_info(inform_t *info, char **av)
 {
-	int ias = 0;
+	unsigned int ihr = 0;
 
-	info->fnanme = av[0];
+	info->fname = av[0];
 	if (info->commandname)
 	{
-		info->commandargs = strt_ow(info->commandname, " \t");
+		info->commandargs = str_tow(info->commandname, " \t");
 		if (!info->commandargs)
 		{
 			info->commandargs = malloc(sizeof(char *) * 2);
@@ -34,9 +34,9 @@ void put_info(inform_t *info, char **av)
 				info->commandargs[1] = NULL;
 			}
 		}
-		for (ias = 0; info->commandargs && info->commandargs[ias]; ias++)
+		for (ihr = 0; info->commandargs && info->commandargs[ihr]; ihr++)
 			;
-		info->numargs = ias;
+		info->numargs = ihr;
 
 		als_rep(info);
 		var_rep(info);
@@ -44,16 +44,16 @@ void put_info(inform_t *info, char **av)
 }
 
 /**
- * release_info - frees inform_t struct fields
- * @info: struct address
- * @all: true ifree_fing all fields
+ * release_info - clears
+ * @info: pointer
+ * @l_fields: tru
  */
-void release_info(inform_t *info, int all)
+void release_info(inform_t *info, int l_fields)
 {
 	free_f(info->commandargs);
 	info->commandargs = NULL;
 	info->commandpath = NULL;
-	if (all)
+	if (l_fields)
 	{
 		if (!info->commandbuffer)
 			free(info->commandname);
@@ -68,8 +68,7 @@ void release_info(inform_t *info, int all)
 		free_b((void **)info->commandbuffer);
 		if (info->readfd > 2)
 			close(info->readfd);
-		print_ch(BUF_FLUSH);
+		print_ch(BUFF_FLUSH);
 	}
 }
-
 
