@@ -103,7 +103,8 @@ void fd_command(inform_t *info)
 	else
 	{
 		if ((inte(info) || disp_env(info, "PATH=")
-					|| info->commandargs[0][0] == '/') && id_command(info, info->commandargs[0]))
+					|| info->commandargs[0][0] == '/') &&
+				id_command(info, info->commandargs[0]))
 			fk_command(info);
 		else if (*(info->commandname) != '\n')
 		{

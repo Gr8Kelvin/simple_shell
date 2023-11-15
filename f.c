@@ -46,7 +46,7 @@ void prt_err(inform_t *info, char *estrn)
 /**
  * prt_d - prints an integer
  * @input: int
- * @fd: the file
+ * @fdhr: the file
  * Return: the number
  */
 int prt_d(int input, int fdhr)

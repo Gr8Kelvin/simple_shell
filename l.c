@@ -2,7 +2,7 @@
 
 /**
  * node_add - adds a node
- * @head: memory location 
+ * @head: memory location
  * @strn: data
  * @number: node ind
  * Return: the size of list
@@ -94,7 +94,7 @@ size_t disp_list_str(const list_string *hhr)
 /**
  * rmv_node - deletes a node
  * @head: memory location
- * @index: index
+ * @ind: index
  * Return: 1 , otherwise 0
  */
 int rmv_node(list_string **head, unsigned int ind)

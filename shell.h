@@ -50,7 +50,7 @@ typedef struct list_string
 } list_string;
 
 /**
- * struct commandinfo - contains mockup-arguements to pass 
+ * struct commandinfo - contains mockup-arguements to pass
  * @commandname: string from getline  arguements
  * @commandargs:an array
  * @commandpath: string path
@@ -81,7 +81,7 @@ typedef struct commandinfo
 	int linecount_error;
 	char *fname;
 	list_string *env;
-	list_string *history;  
+	list_string *history;
 	list_string *alias;
 	char **envir;
 	int envir_changed;
@@ -158,7 +158,7 @@ char **str_tow(char *, char *);
 
 
 int dis_als(inform_t *);
-int dis_hist(inform_t *); 
+int dis_hist(inform_t *);
 
 
 int customcd(inform_t *);
