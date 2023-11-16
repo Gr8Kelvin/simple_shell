@@ -1,3 +1,4 @@
+#include <stddef.h>
 #include "shell.h"
 
 /**
@@ -76,7 +77,7 @@ int rmv_env(inform_t *info)
  */
 int pop_env(inform_t *info)
 {
-	char **envir = NULL;
+	
 	list_string *node = NULL;
 	size_t ihr;
 
