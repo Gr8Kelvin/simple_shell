@@ -11,6 +11,7 @@
 #include <limits.h>
 #include <fcntl.h>
 #include <errno.h>
+#include <stddef.h>
 
 #define CMD_NORM	0
 #define CMD_OR		1
@@ -222,8 +223,6 @@ int is_chn(inform_t *, char *, size_t *);
 void ck_chn(inform_t *, char *, size_t *, size_t, size_t);
 int str_rep(char **, char *);
 int als_rep(inform_t *);
-
-char **envirr;
 
 #endif
 

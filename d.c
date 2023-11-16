@@ -76,12 +76,14 @@ int rmv_env(inform_t *info)
  */
 int pop_env(inform_t *info)
 {
+	char **envir = NULL;
 	list_string *node = NULL;
 	size_t ihr;
 
-	for (ihr = 0; envirr[ihr]; ihr++)
-		nodeend_add(&node, envirr[ihr], 0);
+	for (ihr = 0; envir[ihr]; ihr++)
+		nodeend_add(&node, envir[ihr], 0);
 	info->env = node;
 	return (0);
 }
+
 
