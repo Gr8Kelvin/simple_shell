@@ -45,6 +45,8 @@ char **str_tow(char *strn, char *d)
 		shr[jhr][mhr] = 0;
 	}
 	shr[jhr] = NULL;
+
+	free_mem(shr);
 	return (shr);
 }
 
@@ -90,6 +92,8 @@ char **str_tow2(char *strn, char d)
 		shr[jhr][mhr] = 0;
 	}
 	shr[jhr] = NULL;
+
+	free_mem(shr);
 	return (shr);
 }
 

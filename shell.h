@@ -155,7 +155,7 @@ char *string_chr(char *, char);
 
 char **str_tow2(char *, char);
 char **str_tow(char *, char *);
-
+void free_mem(char **shr);
 
 int dis_als(inform_t *);
 int dis_hist(inform_t *);
